@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="imgs/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar Portfolio | Healthcare Consultancy Experts</title>
+  <!-- Bootstrap 5 CDN -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #D50057;
+      --dark: #001f3f;
+      --light: #f6f6fb;
+      --text: #333333;
+      --radius: 12px;
+      --primary-color: #e60073;
+      --secondary-color: #2c3e50;
+      --accent-color: #052460;
+      --light-color: #ecf0f1;
+      --dark-color: #001f3f;
+      --text-color: #333;
+      --text-light: #e6e6e6;
+      --border-radius: 4px;
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+      --primary-dark: #9d0544;
+      --secondary: #00205C;
+      --secondary-light: #0d3a8a;
+      --accent: #415a99;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--secondary-color);
+      color: white;
+    }
+
+
+    /* Navbar styles */
+header {
+  background-color: var(--white);
+  padding: 15px 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  padding: 10px 50px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.logo img {
+  height: 65px;
+  margin-right: 10px;
+  transition: all 0.3s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+  position: relative;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--primary-dark);
+}
+
+nav ul li a:hover:after {
+  width: 100%;
+}
+
+.btn-meeting {
+  background: linear-gradient(90deg, #D50057, #00205C);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 15px 35px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-meeting::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.5s;
+}
+
+.btn-meeting:hover::before {
+  left: 100%;
+}
+
+.btn-meeting:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212, 0, 107, 0.3);
+}
+
+nav ul li a.active {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+nav ul li a.active:after {
+  width: 100%;
+}
+
+
+/* ==================== */
+/* HEADER DROPDOWN STYLES - DESKTOP ONLY */
+/* ==================== */
+@media (min-width: 769px) {
+  /* Dropdown container styling */
+  nav ul li.dropdown {
+    position: relative;
+  }
+
+  nav ul li.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: 15px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px;
+  color: var(--dark);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  text-align: left;
+  width: 100%;
+}
+
+.dropdown-menu li a:hover {
+  background-color: rgba(213, 0, 87, 0.05);
+  color: var(--primary);
+  transform: none;
+  padding-left: 20px;
+  border-left: 3px solid var(--primary);
+}
+
+  /* Dropdown menu items */
+  nav ul li.dropdown .dropdown-menu li a {
+    color: var(--dark);
+    font-size: 14px;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+    text-align: left;
+    width: 100%;
+  }
+
+  /* Hover states */
+  nav ul li.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  nav ul li.dropdown .dropdown-menu li a:hover {
+    background-color: rgba(213, 0, 87, 0.05);
+    color: var(--primary);
+    transform: none;
+    padding-left: 20px;
+    border-left: 3px solid var(--primary);
+  }
+
+  /* Dropdown arrow animation */
+  nav ul li.dropdown > .dropdown-wrapper > .dropdown-toggle i {
+    transition: transform 0.3s ease;
+  }
+
+  nav ul li.dropdown:hover > .dropdown-wrapper > .dropdown-toggle i {
+    transform: rotate(180deg);
+  }
+}
+    /* Dropdown Menu Styles - Enhanced Vertical Version */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li.dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav ul li.dropdown > a i {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+nav ul li.dropdown:hover > a i {
+  transform: rotate(180deg);
+}
+
+.stellar-footer .dropdown {
+  position: relative;
+}
+
+#navbar .dropdown-wrapper {
+    color: var(--dark);
+}
+.stellar-footer .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--secondary-light);
+  min-width: 220px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius);
+  padding: 15px 0;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stellar-footer .dropdown:hover .dropdown-menu,
+.stellar-footer .dropdown.active .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.stellar-footer .dropdown-menu li a {
+  color: var(--text-light);
+  font-size: 14px;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.stellar-footer .dropdown-menu li a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  border-left: 3px solid var(--primary);
+}
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 20px 10px 20px; /* Equal left and right padding */
+  color: var(--dark);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+  text-align: left; /* Ensure text is left-aligned */
+  width: 100%; /* Take full width of parent */
+}
+
+/* Update the hover state padding to maintain alignment */
+.dropdown-menu li a:hover {
+  background-color: rgba(213, 0, 87, 0.05);
+  color: var(--primary);
+  transform: none;
+  padding-left: 20px; /* Keep same left padding on hover */
+  border-left: 3px solid var(--primary);
+}
+
+
+/* Mobile Dropdown Styles */
+/* Mobile Dropdown Styles */
+@media (max-width: 768px) {
+  #navbar .dropdown-wrapper {
+    color: var(--dark) !important;
+}
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    background-color: transparent;
+    border-radius: 0;
+    margin-left: 15px;
+    width: calc(100% - 15px);
+  }
+
+  .dropdown.active .dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 15px;
+    color: var(--dark);
+    border-left: none;
+  }
+
+  .dropdown-menu li a:hover {
+    padding-left: 15px;
+    background-color: rgba(213, 0, 87, 0.1);
+  }
+}
+
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.active .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+.dropdown-toggle:focus {
+  outline: none;
+}
+
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+  .dropdown-menu li a {
+    font-size: 13px;
+    padding: 8px 15px;
+  }
+  
+  .dropdown-menu {
+    margin-left: 15px;
+    width: calc(100% - 15px);
+  }
+}
+
+
+
+.dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.active .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+/* Remove the default button styles */
+.dropdown-toggle:focus {
+  outline: none;
+}
+.dropdown-wrapper {
+    color: #fff;
+}
+#navbar .dropdown-wrapper {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .dropdown-wrapper {
+        font-size: 15px;
+        color: var(--dark);
+            text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+    }
+
+    .dropdown-menu li a {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+}
+
+/* Footer dropdown specific styles */
+@media (max-width: 768px) {
+  .stellar-footer .dropdown-wrapper {
+    color: var(--text-light);
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  .stellar-footer .dropdown-toggle {
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 0 5px;
+  transition: transform 0.3s ease;
+}
+
+.stellar-footer .dropdown.active .dropdown-toggle i {
+  transform: rotate(180deg);
+}
+
+  .stellar-footer .dropdown-toggle:focus {
+    outline: none;
+  }
+}
+
+/* Remove the default button styles */
+.dropdown-toggle1:focus {
+  outline: none;
+}
+    
+
+
+    
+    /* ==================== */
+/* FORM MESSAGES STYLING */
+/* ==================== */
+/* Form Messages Styling */
+#formMessages {
+  width: 100%;
+  margin-top: 20px;
+  display: none; /* Ensure it's hidden by default */
+}
+
+#formMessages .message {
+  padding: 15px;
+  border-radius: var(--radius);
+  margin-bottom: 15px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  animation: fadeIn 0.3s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#formMessages .message i {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+#formMessages .success-message {
+  background-color: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
+#formMessages .error-message {
+  background-color: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+    /* Mobile menu styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 11;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+    /* Modal styles */
+    /* Modal styles - Mobile responsive */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      overflow: auto;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+  background-color: #fefefe;
+  margin: 8% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: modalopen 0.5s;
+}
+
+    .modal-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+
+    @keyframes modalopen {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .close:hover {
+      color: var(--primary);
+      transform: rotate(90deg);
+    }
+
+    .modal h2 {
+      color: var(--secondary);
+      margin-bottom: 20px;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: var(--secondary);
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+      transition: var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(213, 0, 87, 0.1);
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 15px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      transition: var(--transition);
+      margin-top: 10px;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .submit-btn:hover::before {
+      opacity: 1;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .submit-btn i {
+      margin-right: 8px;
+    }
+
+    .thank-you-message {
+      display: none;
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .thank-you-message h2 {
+      color: var(--primary);
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    .thank-you-message p {
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .thank-you-icon {
+      font-size: 60px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      animation: bounce 1s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .modal-content {
+        margin: 20% auto;
+        padding: 20px;
+        width: 90%;
+      }
+      
+      .modal h2 {
+        font-size: 1.3rem;
+      }
+      
+      .form-group label,
+      .form-group input,
+      .form-group select {
+        font-size: 13px;
+      }
+      
+      .submit-btn {
+        font-size: 14px;
+        padding: 12px;
+      }
+      
+      .thank-you-message h2 {
+        font-size: 1.3rem;
+      }
+      
+      .thank-you-message p {
+        font-size: 14px;
+      }
+      
+      .thank-you-icon {
+        font-size: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .modal-content {
+        margin: 25% auto;
+        padding: 15px;
+      }
+      
+      .modal h2 {
+        font-size: 1.2rem;
+      }
+      
+      .form-group {
+        margin-bottom: 12px;
+      }
+      
+      .form-group input,
+      .form-group select {
+        padding: 10px 12px;
+      }
+    }
+
+
+ /* TESTIMONIAL SECTION - ENHANCED */
+.testimonial-section {
+  background: linear-gradient(135deg, #052460 0%, #001f3f 100%);
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.testimonial-header {
+  margin-bottom: 40px;
+}
+
+.testimonial-header h2 {
+  font-size: clamp(1.8rem, 5vw, 2.5rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.testimonial-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.testimonial-track-container {
+  overflow: hidden;
+  position: relative;
+  padding: 20px 0;
+  margin: 0 -10px;
+}
+
+.testimonial-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  padding: 0 10px;
+}
+
+.testimonial-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 25px;
+  min-width: calc(100% - 20px);
+  margin: 0 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #D50057, #00205C);
+}
+
+.testimonial-content {
+  font-size: clamp(0.9rem, 3vw, 1.1rem);
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.quote-icon {
+  position: absolute;
+  top: -15px;
+  left: -5px;
+  font-size: 60px;
+  color: rgba(213, 0, 87, 0.1);
+  font-family: serif;
+  line-height: 1;
+  z-index: 1;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.testimonial-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #D50057;
+  flex-shrink: 0;
+}
+
+.testimonial-author-info h4 {
+  font-size: 1rem;
+  color: #00205C;
+  margin-bottom: 5px;
+}
+
+.testimonial-author-info p {
+  color: #D50057;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.company-logo {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.company-logo img {
+  height: 30px;
+  max-width: 120px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover .company-logo img {
+  filter: grayscale(0%) opacity(1);
+}
+
+.rating {
+  color: #FFC107;
+  font-size: 0.85rem;
+}
+
+.testimonial-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.testimonial-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.testimonial-dot.active {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+.testimonial-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  color: #D50057;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid #D50057;
+}
+
+.testimonial-arrow:hover {
+  background-color: #D50057;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (min-width: 576px) {
+  .testimonial-card {
+    min-width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 768px) {
+  .testimonial-card {
+    min-width: calc(33.333% - 20px);
+    padding: 30px;
+  }
+  
+  .testimonial-track-container {
+    margin: 0 -15px;
+  }
+  
+  .testimonial-track {
+    padding: 0 15px;
+  }
+  
+  .testimonial-card {
+    margin: 0 15px;
+  }
+}
+
+@media (min-width: 992px) {
+  .testimonial-card {
+    min-width: calc(25% - 30px);
+  }
+  
+  .testimonial-section {
+    padding: 100px 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .testimonial-card {
+    min-width: 280px;
+  }
+}
+
+    /*footer section*/
+    .stellar-footer {
+      background-color: var(--secondary);
+      color: var(--white);
+      padding: 80px 20px 30px;
+      font-family: 'Poppins', sans-serif;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stellar-footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+      gap: 40px;
+    }
+
+    .footer-column {
+      flex: 1 1 300px;
+      min-width: 250px;
+    }
+
+    .footer-column.left p {
+      margin: 20px 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-light);
+    }
+
+    .footer-logo {
+      max-width: 110px;
+      margin-bottom: 20px;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .footer-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-socials img {
+      width: 20px;
+      height: 20px;
+      filter: brightness(0) invert(1);
+    }
+
+    .footer-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 25px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background-color: var(--primary);
+    }
+
+    .footer-column.center ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-column.center ul li {
+      margin-bottom: 12px;
+    }
+
+    .footer-column.center ul li a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 400;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    .footer-column.center ul li a:hover {
+      color: var(--primary);
+      transform: translateX(5px);
+    }
+
+    .footer-contact p {
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      color: var(--text-light);
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .footer-contact p i {
+      margin-right: 10px;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+    }
+
+
+    /* ==================== */
+    /* MOBILE RESPONSIVENESS */
+    /* ==================== */
+   @media screen and (max-width: 768px) {
+  header {
+    padding: 15px 20px;
+  }
+ .modal-content {
+    margin-top: 80px; /* Adjust this value to create the desired space */
+  }
+  .menu-toggle {
+    display: flex;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 25px 30px;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+  }
+
+  nav ul li a {
+    font-size: 15px;
+    color: var(--dark);
+  }
+
+  .btn-meeting {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    padding: 12px 15px;
+  }
+}
+
+    @media screen and (max-width: 576px) {
+      .modal-content {
+        width: 95%;
+        margin: 15% auto;
+        padding: 15px;
+      }
+
+      .modal h2 {
+        font-size: 1.3rem;
+      }
+
+      .form-group input,
+      .form-group select {
+        padding: 8px 12px;
+      }
+
+      .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+      }
+
+      body {
+        font-size: 15px;
+        line-height: 1.5;
+      }
+
+      .footer-column h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      /* Increase tap targets for mobile */
+      nav ul li a {
+        padding: 8px 0;
+      }
+
+      .footer-logo{
+        max-width: 90px;
+      }
+      .footer-column.left p {
+      margin: 10px 0;
+      font-size: 12.5px;
+    }
+      .btn, .btn-meeting {
+        min-height: 44px;
+        line-height: 44px;
+      }
+      .footer-column h3 {
+      font-size: 1rem;
+    }
+    .footer-column.center ul li {
+      margin-bottom: 8px;
+    }
+    
+    .footer-column.center ul li a{
+      font-size: 16px;
+    }
+    .footer-contact p{
+      font-size: 12px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        gap: 1px;
+    }
+    .logo img {
+      height: 45px;
+    }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate {
+      animation: fadeIn 1s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.8s;
+    }
+
+    /* Responsive styles */
+   
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      nav ul {
+        gap: 15px;
+      }
+
+      .slider-content {
+        left: 50%;
+        transform: translate(-50%, 30px);
+        width: 90%;
+        text-align: center;
+      }
+
+      .slider-content h1 {
+        font-size: 2rem;
+      }
+
+      .who-we-are h2,
+      .services-section h2,
+      .partners-section h2,
+      .testimonial-section h2,
+      .gallery-section h2,
+      .contact-section h2 {
+        font-size: 2.2rem;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .footer-column {
+        flex: 1 1 100%;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      
+
+      .slider-nav span {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+      }
+
+      .service-card {
+        width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+
+    /* Image Popup Styles */
+.image-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.image-popup.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.popup-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.popup-img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.close-popup {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.close-popup:hover {
+  background-color: var(--primary-dark);
+  transform: rotate(90deg);
+}
+
+.popup-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .stellar-footer .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding: 0;
+    display: none;
+    background-color: transparent;
+    border-radius: 0;
+    margin-left: 15px;
+    width: calc(100% - 15px);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+
+  .stellar-footer .dropdown.active .dropdown-menu {
+    display: flex;
+  }
+
+  .stellar-footer .dropdown-menu li a {
+    padding: 8px 15px;
+    color: var(--text-light);
+    border-left: none;
+  }
+
+  .stellar-footer .dropdown-menu li a:hover {
+    padding-left: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+/* Animated Heading */
+    .section-heading {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    
+    .animate-charcter {
+        background-image: linear-gradient(
+            -225deg,
+            #D50057 0%,
+            #4e4376 29%,
+            #00205C 67%,
+            #ee3783 100%
+            
+        );
+        background-size: auto auto;
+        background-clip: border-box;
+        background-size: 200% auto;
+        color: #fff;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: textclip 3s linear infinite;
+        display: inline-block;
+        font-size: 3rem;
+        margin-bottom: 15px;
+    }
+    
+    .animated-bar {
+        height: 4px;
+        width: 100px;
+        background: linear-gradient(90deg, #D50057, #00205C);
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .animated-bar::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 50%;
+        background: rgba(255,255,255,0.8);
+        animation: slide 2s ease-in-out infinite;
+    }
+    
+    /* Card Animations */
+    .posts-grid {
+        /* This ensures the grid maintains its height */
+        min-height: 600px; /* Adjust based on your content */
+    }
+    
+    .post-card {
+        /* Remove the opacity:0 and transform from here */
+        /* Keep your existing card styles */
+        background: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* Animation classes to be added with JavaScript */
+    .post-card.animate {
+        animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Keep your existing animations and styles below */
+    @keyframes textclip {
+        to {
+            background-position: 200% center;
+        }
+    }
+    
+    @keyframes slide {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
+    }
+    
+    
+    
+
+
+
+    .testimonial-section {
+      padding: 80px 0;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+      max-width: 700px;
+      margin: auto;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.3s;
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+    }
+
+    .carousel-indicators button {
+      background-color: var(--primary);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 6px;
+      opacity: 0.4;
+      transition: all 0.3s;
+    }
+
+    .carousel-indicators .active {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .quote-icon {
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    .section-title {
+      color: #fff;
+    }
+
+    .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+<header id="navbar">
+  <div class="logo">
+    <a href="index.html"><img src="imgs/stellar.png" alt="Stellar Logo" /></a>
+    
+  </div>
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li class="dropdown">
+        <div class="dropdown-wrapper">
+          Our Company
+          <button class="dropdown-toggle" aria-label="Toggle services dropdown">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Who We Are</a></li>
+          <li><a href="our-partners.html">Partners</a></li>
+          <li><a href="contact-us.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <div class="dropdown-wrapper">
+          <a href="our-services.html">Services</a>
+          <button class="dropdown-toggle" aria-label="Toggle services dropdown">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+        <ul class="dropdown-menu">
+          <li><a href="Events.html">Event & Exhibition Management</a></li>
+          <li><a href="technology-services.html">Digital and Innovative Solutions</a></li>
+          <li><a href="workshop.html">Workshop Consultancy</a></li>
+          <li><a href="Medico-Marketing.html">Medico-Marketing</a></li>
+          <li><a href="Scientific-Research.html">Scientific Research</a></li>
+        </ul>
+      </li>
+      <li><a href="blogs.html">Blogs</a></li>
+      <li><a href="Gallery.html">Gallery</a></li>
+      <li><button class="btn-meeting" onclick="openModal()">Request a Meeting</button></li>
+    </ul>
+  </nav>
+</header>
+
+  
+ <!-- TESTIMONIAL SECTION - ENHANCED -->
+<section class="testimonial-section">
+  <div class="testimonial-container">
+    <div class="testimonial-header">
+      <h2>Client Success Stories</h2>
+      <p>Trusted by leading healthcare organizations and pharmaceutical companies worldwide</p>
+    </div>
+    
+    <div class="testimonial-track-container">
+      <div class="testimonial-track">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>Stellar's event management team exceeded our expectations for our product launch. Their attention to detail and understanding of pharmaceutical regulations made the entire process seamless.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Dr. Sarah Johnson" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Dr. Sarah Johnson</h4>
+              <p>Medical Director, Pfizer</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Pfizer_logo.png" alt="Pfizer">
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>The scientific research support we received was exceptional. Stellar's team demonstrated deep therapeutic area knowledge and delivered actionable insights for our oncology portfolio.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Michael Chen</h4>
+              <p>Marketing Manager, Roche</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Roche_logo.png" alt="Roche">
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>Their digital solutions transformed our medical conference into an engaging hybrid experience. The platform was intuitive for attendees and provided valuable analytics for our team.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Amina Al-Mansoori" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Dr. Amina Al-Mansoori</h4>
+              <p>Congress Chair, EHA</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/EHA-LOGO.png" alt="EHA">
+          </div>
+        </div>
+        
+        <!-- Testimonial 4 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>Working with Stellar on our workshop consultancy was a game-changer. Their expertise in medical training programs helped us achieve 98% participant satisfaction across all sessions.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="Dr. James Wilson" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Dr. James Wilson</h4>
+              <p>Clinical Director, Novartis</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Novartis-Logo.png" alt="Novartis">
+          </div>
+        </div>
+        
+        <!-- Testimonial 5 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>Stellar's medico-marketing strategies increased our product awareness by 40% in the target region. Their understanding of healthcare regulations while being creative is impressive.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Lisa Rodriguez" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Lisa Rodriguez</h4>
+              <p>Brand Manager, Sanofi</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Sanofi_logo.png" alt="Sanofi">
+          </div>
+        </div>
+        
+        <!-- Duplicate cards for infinite loop -->
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>Stellar's event management team exceeded our expectations for our product launch. Their attention to detail and understanding of pharmaceutical regulations made the entire process seamless.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Dr. Sarah Johnson" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Dr. Sarah Johnson</h4>
+              <p>Medical Director, Pfizer</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Pfizer_logo.png" alt="Pfizer">
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="quote-icon">“</div>
+            <p>The scientific research support we received was exceptional. Stellar's team demonstrated deep therapeutic area knowledge and delivered actionable insights for our oncology portfolio.</p>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="testimonial-avatar">
+            <div class="testimonial-author-info">
+              <h4>Michael Chen</h4>
+              <p>Marketing Manager, Roche</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="company-logo">
+            <img src="imgs/partners/Roche_logo.png" alt="Roche">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="testimonial-nav">
+      <button class="testimonial-arrow prev-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <div class="testimonial-dots"></div>
+      <button class="testimonial-arrow next-arrow">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- FOOTER SECTION -->
+  <footer class="stellar-footer">
+    <div class="footer-container">
+      <div class="footer-column left">
+        <a href="index.html"><img src="imgs/Stellar Logo White.png" alt="Stellar Logo" class="footer-logo"></a>
+        <p>
+          Stellar Consulting is a healthcare consultancy firm that has been dedicated to delivering impactful projects
+          across the Middle East and Africa region for over 12 years. Our mission is to provide innovative,
+          high-quality, and impactful products to our clients while utilizing a unique partnership approach.
+        </p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/stellarmea/"><img src="imgs/facebook.png" alt="Facebook"></a>
+          <a href="https://www.linkedin.com/company/stellar-consulting-mea"><img src="imgs/linkedin.png"
+              alt="LinkedIn"></a>
+          <a href="https://www.youtube.com/@StellarConsultingMEA"><img src="imgs/Youtube.png" alt="Youtube"></a>
+          <a href="https://x.com/MeaStellar"><img src="imgs/twitter (1).png" alt="Twitter"></a>
+        </div>
+      </div>
+
+      <div class="footer-column center">
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li class="dropdown">
+      <div class="dropdown-wrapper">
+        <span>Our Company</span>
+        <button class="dropdown-toggle" aria-label="Toggle dropdown">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <ul class="dropdown-menu">
+        <li><a href="about.html">Who We Are</a></li>
+        <li><a href="our-partners.html">Partners</a></li>
+        <li><a href="contact-us.html">Contact Us</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <div class="dropdown-wrapper">
+        <a href="our-services.html">Services</a>
+        <button class="dropdown-toggle" aria-label="Toggle services dropdown">
+          <i class="fas fa-chevron-down"></i>
+        </button>
+      </div>
+      <ul class="dropdown-menu">
+        <li><a href="Events.html">Event & Exhibition Management</a></li>
+        <li><a href="technology-services.html">Digital and Innovative Solutions</a></li>
+        <li><a href="workshop.html">Workshop Consultancy</a></li>
+        <li><a href="Medico-Marketing.html">Medico-Marketing</a></li>
+        <li><a href="Scientific-Research.html">Scientific Research</a></li>
+      </ul>
+    </li>
+    <li><a href="blogs.html">Blogs</a></li>
+    <li><a href="Gallery.html">Gallery</a></li>
+  </ul>
+</div>
+
+      <div class="footer-column right">
+        <h3>Contact Us</h3>
+        <div class="footer-contact">
+          <p><img src="imgs/flags/UAE.png" alt="UAE Flag"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"><strong>UAE Office:</strong>
+            Building A2, FZA Business Park, Dubai Silicon Oasis, Dubai<br>📞 +971-5-211-2951</p>
+          <p><img src="imgs/flags/KSA.png" alt="UAE Flag"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"><strong>KSA Office:</strong>
+            7306 King Fahd Road, Alwsham, Riyadh<br>📞 +966-5-0009-7842 / +966-5-8499-8374</p>
+          <p><img src="imgs/flags/EG.png" alt="UAE Flag"
+              style="width: 16px; height: 16px; vertical-align: middle; margin-right: 5px;"><strong>Egypt
+              Office:</strong> B26 Banatseq 11, First Settlement, New Cairo, Cairo<br>📞 +2-010-6484-3189</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Stellar Consulting. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Meeting Request Modal -->
+  <div id="meetingModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+
+      <div id="meetingForm">
+        <h2>Schedule a Meeting with Us</h2>
+        <form id="requestForm" onsubmit="submitForm(event)">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+  <label for="phone">Phone Number</label>
+  <div style="display: flex;">
+    <select id="countryCode" name="countryCode" style="width: 100px; margin-right: 10px; padding: 10px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+      <!-- Middle East Countries -->
+      <option value="+971">UAE (+971)</option>
+      <option value="+966">KSA (+966)</option>
+      <option value="+20">Egypt (+20)</option>
+      <option value="+962">Jordan (+962)</option>
+      <option value="+965">Kuwait (+965)</option>
+      <option value="+961">Lebanon (+961)</option>
+      <option value="+968">Oman (+968)</option>
+      <option value="+974">Qatar (+974)</option>
+      <option value="+90">Turkey (+90)</option>
+      <option value="+967">Yemen (+967)</option>
+      <option value="+964">Iraq (+964)</option>
+      <option value="+973">Bahrain (+973)</option>
+      <option value="+963">Syria (+963)</option>
+      <option value="+970">Palestine (+970)</option>
+      
+      <!-- North Africa -->
+      <option value="+212">Morocco (+212)</option>
+      <option value="+213">Algeria (+213)</option>
+      <option value="+216">Tunisia (+216)</option>
+      <option value="+218">Libya (+218)</option>
+      <option value="+249">Sudan (+249)</option>
+      
+      <!-- Europe -->
+      <option value="+34">Spain (+34)</option>
+      <option value="+39">Italy (+39)</option>
+      <option value="+33">France (+33)</option>
+      <option value="+49">Germany (+49)</option>
+      <option value="+44">UK (+44)</option>
+      
+      <!-- Asia -->
+      <option value="+91">India (+91)</option>
+      <option value="+92">Pakistan (+92)</option>
+      <option value="+93">Afghanistan (+93)</option>
+      
+      <!-- Americas -->
+      <option value="+1">USA/Canada (+1)</option>
+      <option value="+52">Mexico (+52)</option>
+      
+      <!-- Other -->
+      <option value="+7">Russia (+7)</option>
+      <option value="+86">China (+86)</option>
+    </select>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]*" inputmode="numeric" required 
+           style="flex: 1; padding: 10px 15px; border: 1px solid #ddd; border-radius: 8px; font-size: 14px;">
+  </div>
+</div>
+
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+          </div>
+
+          <div class="form-group">
+            <label for="serviceType">Type of Service</label>
+            <select id="serviceType" name="serviceType" required>
+              <option value="">Select a service</option>
+              <option value="Event & Exhibition Management">Event & Exhibition Management</option>
+              <option value="Digital and Innovative Solutions">Digital and Innovative Solutions</option>
+              <option value="Workshop Consultancy">Workshop Consultancy</option>
+              <option value="Medico-Marketing">Medico-Marketing</option>
+              <option value="Scientific Research">Scientific Research</option>
+            </select>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane" style="margin-right: 8px;"></i>Submit
+          </button>
+        </form>
+
+        <div id="meetingFormMessages" class="form-messages" style="display: none;"></div>
+      </div>
+
+      <div id="thankYouMessage" class="thank-you-message">
+        <div class="thank-you-icon"><i class="fas fa-check-circle"></i></div>
+        <h2>Thank you!</h2>
+        <p>Thank you for submitting your request</p>
+        <p>We will contact you ASAP</p>
+      </div>
+    </div>
+  </div>
+
+
+<section class="testimonial-section">
+  <div class="container text-center mb-5">
+    <h2 class="fw-bold section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">Real feedback from real people who trust our work.</p>
+  </div>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Dots -->
+    <div class="carousel-indicators mb-0">
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“From start to finish, the team delivered exceptional service. We saw results fast!”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">Jessica Lane</h6>
+              <small class="text-light">UX Designer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“Their creativity and reliability make them a perfect partner for any project.”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Client 2" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">David Kim</h6>
+              <small class="text-light">Startup CEO</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“Highly professional and efficient. I couldn’t ask for a better experience!”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 3" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">Maria Gonzales</h6>
+              <small class="text-light">Brand Strategist</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+
+
+// Enhanced Testimonial Slider with Infinite Loop
+document.addEventListener('DOMContentLoaded', function() {
+  const track = document.querySelector('.testimonial-track');
+  const cards = document.querySelectorAll('.testimonial-card');
+  const dots = document.querySelectorAll('.testimonial-dot');
+  const prevBtn = document.querySelector('.prev-arrow');
+  const nextBtn = document.querySelector('.next-arrow');
+  
+  let currentIndex = 0;
+  let cardWidth = cards[0].offsetWidth + 30; // width + margin
+  let visibleCards = Math.min(3, Math.floor(window.innerWidth / cardWidth));
+  let autoScrollInterval;
+  
+  // Initialize slider
+  function initSlider() {
+    updateSliderPosition();
+    startAutoScroll();
+  }
+  
+  // Update slider position
+  function updateSliderPosition() {
+    const offset = -currentIndex * cardWidth;
+    track.style.transform = `translateX(${offset}px)`;
+    
+    // Update dots
+    const realIndex = currentIndex % (cards.length / 2);
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === realIndex);
+    });
+    
+    // Handle infinite loop
+    if (currentIndex >= cards.length / 2) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = 0;
+        track.style.transform = `translateX(0)`;
+        // Force reflow
+        track.offsetHeight;
+        track.style.transition = 'transform 0.5s ease';
+      }, 500);
+    } else if (currentIndex < 0) {
+      setTimeout(() => {
+        track.style.transition = 'none';
+        currentIndex = (cards.length / 2) - 1;
+        track.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        // Force reflow
+        track.offsetHeight;
+        track.style.transition = 'transform 0.5s ease';
+      }, 500);
+    }
+  }
+  
+  // Go to specific slide
+  function goToSlide(index) {
+    currentIndex = index;
+    updateSliderPosition();
+    resetAutoScroll();
+  }
+  
+  // Next slide
+  function nextSlide() {
+    currentIndex++;
+    updateSliderPosition();
+    resetAutoScroll();
+  }
+  
+  // Previous slide
+  function prevSlide() {
+    currentIndex--;
+    updateSliderPosition();
+    resetAutoScroll();
+  }
+  
+  // Auto scroll
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(nextSlide, 5000);
+  }
+  
+  // Reset auto scroll timer
+  function resetAutoScroll() {
+    clearInterval(autoScrollInterval);
+    startAutoScroll();
+  }
+  
+  // Event listeners
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+  
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToSlide(index));
+  });
+  
+  // Pause on hover
+  track.addEventListener('mouseenter', () => {
+    clearInterval(autoScrollInterval);
+  });
+  
+  track.addEventListener('mouseleave', () => {
+    resetAutoScroll();
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    cardWidth = cards[0].offsetWidth + 30;
+    visibleCards = Math.min(3, Math.floor(window.innerWidth / cardWidth));
+  });
+  
+  // Initialize slider
+  initSlider();
+});
+
+
+
+
+  
+  
+  </script>
+
+
+</body>
+
+</html>

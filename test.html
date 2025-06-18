@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Testimonial Carousel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #D50057;
+      --secondary: #00205C;
+    }
+
+    body {
+      background-color: var(--secondary);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+    }
+
+    .testimonial-section1 {
+      padding: 80px 0;
+    }
+
+    .testimonial-section1 .testimonial-card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 20px 30px rgba(0, 0, 0, 0.25);
+      max-width: 700px;
+      margin: auto;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.3s;
+    }
+
+    .testimonial-section1 .testimonial-card:hover {
+      transform: scale(1.015);
+      box-shadow: 0 30px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .testimonial-section1 .testimonial-img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--primary);
+    }
+
+    .testimonial-section1 .carousel-indicators button {
+      background-color: var(--primary);
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin: 0 6px;
+      opacity: 0.4;
+      transition: all 0.3s;
+    }
+
+    .testimonial-section1 .carousel-indicators .active {
+      opacity: 1;
+      transform: scale(1.3);
+    }
+
+    .testimonial-section1 .carousel-control-prev-icon,
+    .testimonial-section1 .carousel-control-next-icon {
+      background-color: var(--primary);
+      border-radius: 50%;
+    }
+
+    .testimonial-section1 .quote-icon {
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    .testimonial-section1 .section-title {
+      color: #fff;
+    }
+
+    .testimonial-section1 .section-subtitle {
+      color: rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+
+<section class="testimonial-section1">
+  <div class="container text-center mb-5">
+    <h2 class="fw-bold section-title">What Our Clients Say</h2>
+    <p class="section-subtitle">Real feedback from real people who trust our work.</p>
+  </div>
+
+  <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+    <!-- Dots -->
+    <div class="carousel-indicators mb-0">
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <!-- Slides -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“From start to finish, the team delivered exceptional service. We saw results fast!”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client 1" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">Jessica Lane</h6>
+              <small class="text-light">UX Designer</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“Their creativity and reliability make them a perfect partner for any project.”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Client 2" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">David Kim</h6>
+              <small class="text-light">Startup CEO</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="carousel-item">
+        <div class="testimonial-card text-center">
+          <div class="quote-icon mb-3">❝</div>
+          <p class="lead">“Highly professional and efficient. I couldn’t ask for a better experience!”</p>
+          <div class="d-flex align-items-center justify-content-center mt-4">
+            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client 3" class="testimonial-img me-3">
+            <div class="text-start">
+              <h6 class="mb-0">Maria Gonzales</h6>
+              <small class="text-light">Brand Strategist</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
