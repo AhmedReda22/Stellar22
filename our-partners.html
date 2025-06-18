@@ -867,15 +867,16 @@ nav ul li.dropdown:hover > a i {
 /* partners section */
 .partners-section {
   background-color: #ffffff;
-  padding: 80px 20px;
+  padding: 60px 20px;
   text-align: center;
 }
 
 .partners-section h2 {
-  font-size: 40px;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 10px;
+      line-height: 1.2;
 }
 
 .partners-section h2 span {
@@ -884,37 +885,30 @@ nav ul li.dropdown:hover > a i {
 
 .partners-subtitle {
   color: #d4006b;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
 }
 
 .partners-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 fixed columns */
-  gap: 30px;
-  max-width: 900px;
-  margin: 0 auto 50px;
-}
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      padding: 0 15px;
+    }
 
-.partner-logo {
-  background-color: #d4006b;
-  height: 80px;
-  border-radius: 10px;
-}
-
-
-
-.partner-logo {
+    .partner-logo {
       background-color: var(--white);
       height: 120px;
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 15px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
       transition: all 0.3s ease;
       position: relative;
@@ -1555,14 +1549,16 @@ nav ul li.dropdown:hover > a i {
 
 
     
+    /* CTA Button */
     .cta-button {
-      margin-top: 60px;
+      margin-top: 40px;
+      text-align: center;
     }
 
     .request-btn {
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       color: var(--white);
-      padding: 18px 45px;
+      padding: 16px 40px;
       font-size: 1.1rem;
       font-weight: 600;
       border-radius: 50px;
@@ -1574,6 +1570,7 @@ nav ul li.dropdown:hover > a i {
       overflow: hidden;
       z-index: 1;
       cursor: pointer;
+      border: none;
     }
 
     .request-btn::before {
@@ -1598,6 +1595,95 @@ nav ul li.dropdown:hover > a i {
     }
 
 
+  
+  
+    /* Responsive adjustments */
+    @media screen and (max-width: 992px) {
+      .partners-section {
+        padding: 50px 20px;
+      }
+      
+      .partners-section h2 {
+        font-size: 2.2rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+      }
+      
+      .partner-logo {
+        height: 110px;
+        padding: 12px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .partners-section h2 {
+        font-size: 2rem;
+      }
+      
+      .partners-subtitle {
+        font-size: 13px;
+        margin-bottom: 25px;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 12px;
+        padding: 0 10px;
+      }
+      
+      .partner-logo {
+        height: 100px;
+      }
+      
+      .request-btn {
+        padding: 14px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .partners-section {
+        padding: 40px 15px;
+      }
+      
+      .partners-section h2 {
+        font-size: 1.8rem;
+      }
+      
+      .partners-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+      }
+      
+      .partner-logo {
+        height: 90px;
+        padding: 10px;
+      }
+      
+      .partner-logo img {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+      
+      .request-btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+      }
+    }
+
+    @media screen and (max-width: 360px) {
+      .partners-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .partner-logo {
+        height: 80px;
+      }
+    }
+  
   </style>
 </head>
 <body>
@@ -1655,49 +1741,48 @@ nav ul li.dropdown:hover > a i {
 <!-- OUR PARTNERS SECTION -->
 
 <section class="partners-section">
-  <h2>OUR <span>PARTNERS</span></h2>
-  <p class="partners-subtitle">
-    COLLABORATING WITH INDUSTRY LEADERS TO DELIVER UNMATCHED EVENT SOLUTION
-  </p>
+    <h2>OUR <span>PARTNERS</span></h2>
+    <p class="partners-subtitle">
+      COLLABORATING WITH INDUSTRY LEADERS TO DELIVER UNMATCHED EVENT SOLUTION
+    </p>
 
-  <div class="partners-grid">
-    <div class="partner-logo"><img src="imgs/partners/Abbott_Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/AbbVie_logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Amgen Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/apotex-logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Astrazeneca-logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Bayer-Logo.wine.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Boehringer_Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/EHA-LOGO.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/janssen-logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Lilly-Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Logo_Sanofi.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/MSD_logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Novartis Oncology.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Novartis-Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Otsuka_logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Pfizer_Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Roche_Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/SSMFM-logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Sandoz-Blue.svg.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Takeda_logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/UHIA Logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/الهيئة العامة للمستشفيات والمعاهد التعليمية logo.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/NICE-logo-e1704811229663.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/1652625728logo@2x.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Novo-Nordisk-logo-color-e1607727205131-300x213.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/Astellas_logo.svg.png" alt=""></div>
-    <div class="partner-logo"><img src="imgs/partners/children-cancer-hospital-57357-logo-png_seeklogo-334681.png" alt=""></div>
-  </div>
-<!-- CTA Button -->
-      <div class="cta-button">
-        <button class="request-btn" onclick="openModal()">
-          <i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Request a Meeting
-        </button>
-      </div>
+    <div class="partners-grid">
+      <div class="partner-logo"><img src="imgs/partners/Abbott_Logo.png" alt="Abbott"></div>
+      <div class="partner-logo"><img src="imgs/partners/AbbVie_logo.png" alt="AbbVie"></div>
+      <div class="partner-logo"><img src="imgs/partners/Amgen Logo.png" alt="Amgen"></div>
+      <div class="partner-logo"><img src="imgs/partners/apotex-logo.png" alt="Apotex"></div>
+      <div class="partner-logo"><img src="imgs/partners/Astrazeneca-logo.png" alt="AstraZeneca"></div>
+      <div class="partner-logo"><img src="imgs/partners/Bayer-Logo.wine.png" alt="Bayer"></div>
+      <div class="partner-logo"><img src="imgs/partners/Boehringer_Logo.png" alt="Boehringer"></div>
+      <div class="partner-logo"><img src="imgs/partners/EHA-LOGO.png" alt="EHA"></div>
+      <div class="partner-logo"><img src="imgs/partners/janssen-logo.png" alt="Janssen"></div>
+      <div class="partner-logo"><img src="imgs/partners/Lilly-Logo.png" alt="Lilly"></div>
+      <div class="partner-logo"><img src="imgs/partners/Logo_Sanofi.png" alt="Sanofi"></div>
+      <div class="partner-logo"><img src="imgs/partners/MSD_logo.png" alt="MSD"></div>
+      <div class="partner-logo"><img src="imgs/partners/Novartis Oncology.png" alt="Novartis Oncology"></div>
+      <div class="partner-logo"><img src="imgs/partners/Novartis-Logo.png" alt="Novartis"></div>
+      <div class="partner-logo"><img src="imgs/partners/Otsuka_logo.png" alt="Otsuka"></div>
+      <div class="partner-logo"><img src="imgs/partners/Pfizer_Logo.png" alt="Pfizer"></div>
+      <div class="partner-logo"><img src="imgs/partners/Roche_Logo.png" alt="Roche"></div>
+      <div class="partner-logo"><img src="imgs/partners/SSMFM-logo.png" alt="SSMFM"></div>
+      <div class="partner-logo"><img src="imgs/partners/Sandoz-Blue.svg.png" alt="Sandoz"></div>
+      <div class="partner-logo"><img src="imgs/partners/Takeda_logo.png" alt="Takeda"></div>
+      <div class="partner-logo"><img src="imgs/partners/UHIA Logo.png" alt="UHIA"></div>
+      <div class="partner-logo"><img src="imgs/partners/الهيئة العامة للمستشفيات والمعاهد التعليمية logo.png" alt="General Authority for Hospitals"></div>
+      <div class="partner-logo"><img src="imgs/partners/NICE-logo-e1704811229663.png" alt="NICE"></div>
+      <div class="partner-logo"><img src="imgs/partners/1652625728logo@2x.png" alt="Partner"></div>
+      <div class="partner-logo"><img src="imgs/partners/Novo-Nordisk-logo-color-e1607727205131-300x213.png" alt="Novo Nordisk"></div>
+      <div class="partner-logo"><img src="imgs/partners/Astellas_logo.svg.png" alt="Astellas"></div>
+      <div class="partner-logo"><img src="imgs/partners/children-cancer-hospital-57357-logo-png_seeklogo-334681.png" alt="Children Cancer Hospital"></div>
+    </div>
+    
+    <!-- CTA Button -->
+    <div class="cta-button">
+      <button class="request-btn" onclick="openModal()">
+        <i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Request a Meeting
+      </button>
     </div>
   </section>
-
 
   <!-- FOOTER SECTION -->
   <footer class="stellar-footer">
