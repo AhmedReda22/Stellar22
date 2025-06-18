@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="imgs/favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
   <title>Technology Services - Stellar</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -39,7 +41,129 @@
       overflow-x: hidden;
       background-color: var(--light);
     }
+
+    /* Add this at the top of your CSS */
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%; /* Prevent font scaling in landscape */
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Special iPhone 12 Pro fixes */
+@media only screen 
+  and (device-width: 390px) 
+  and (device-height: 844px) 
+  and (-webkit-device-pixel-ratio: 3) {
+  
+  /* Fix horizontal scrolling */
+  html, body {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Adjust hero section */
+  .tech-hero-section h1 {
+    font-size: 1.8rem;
+    line-height: 1.3;
+    padding: 0 10px;
+  }
+  
+  /* Fix service cards grid */
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+  
+  /* Ensure all content stays within bounds */
+  .service-card, 
+  .footer-container, 
+  .footer-column {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  /* Fix modal positioning */
+  .modal-content {
+    width: 95vw;
+    left: 2.5vw;
+  }
+}
     
+
+/* iPhone SE (320px) and similar small devices */
+@media only screen 
+  and (max-device-width: 320px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+  /* Base containment */
+  html, body {
+    width: 100vw;
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+  
+  /* Text scaling */
+  .tech-hero-section h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+    padding: 0 5px;
+  }
+  
+  /* Grid adjustments */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 5px;
+  }
+  
+  /* Card content */
+  .service-card {
+    padding: 20px 10px;
+  }
+  
+  .service-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .service-card p {
+    font-size: 0.85rem;
+  }
+  
+  /* Footer fixes */
+  .footer-container {
+    padding: 0 5px;
+  }
+  
+  .footer-column {
+    padding: 0;
+  }
+  
+  /* Button sizing */
+  .btn-meeting {
+    padding: 12px 15px;
+    font-size: 14px;
+    white-space: normal;
+  }
+  
+  /* Modal fixes */
+  .modal-content {
+    width: 95%;
+    left: 2.5%;
+    padding: 15px;
+  }
+}
     a {
       text-decoration: none;
       color: var(--primary);
@@ -57,11 +181,10 @@
     }
 
     .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
+  width: 100%;
+  max-width: 100%;
+  padding: 0 15px;
+}
 
     .btn {
       display: inline-block;
@@ -1300,8 +1423,8 @@ nav ul li.dropdown:hover > a i {
     }
 
     .footer-column {
-      flex: 1 1 300px;
-      min-width: 250px;
+      flex: 1 1 100%;
+  min-width: 0; /* Prevent flex items from overflowing */
     }
 
     .footer-column.left p {
@@ -2376,7 +2499,67 @@ function openModal() {
 
 
 
+
+// Flash animation for service cards when they come into view
+  const flashOnScroll = function() {
+    const serviceCards = document.querySelectorAll('.service-card');
+    const windowHeight = window.innerHeight;
+    
+    serviceCards.forEach(card => {
+      const cardPosition = card.getBoundingClientRect().top;
+      const cardInView = cardPosition < windowHeight - 100;
+      
+      if (cardInView && !card.classList.contains('has-flashed')) {
+        // Add flash animation class
+        card.classList.add('flash-animation', 'has-flashed');
+        
+        // Remove the animation class after it completes
+        setTimeout(() => {
+          card.classList.remove('flash-animation');
+        }, 1000);
+      }
+    });
+  };
+
+  // Add the CSS for the flash animation
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes flash {
+      0% { box-shadow: 0 0 0 0 rgba(213, 0, 87, 0); }
+      50% { box-shadow: 0 0 0 10px rgba(213, 0, 87, 0.3); }
+      100% { box-shadow: 0 0 0 0 rgba(213, 0, 87, 0); }
+    }
+    
+    .flash-animation {
+      animation: flash 1s ease-out;
+    }
+  `;
+  document.head.appendChild(style);
+
+  // Run the flash check on scroll
+  window.addEventListener('scroll', flashOnScroll);
+  
+  // Also check on page load
+  window.addEventListener('load', flashOnScroll);
+  
+
+
+  // iPhone SE Viewport Enforcement
+function enforceViewport() {
+  const isiPhoneSE = window.innerWidth <= 320 && window.devicePixelRatio >= 2;
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  
+  if (isiPhoneSE && viewportMeta) {
+    viewportMeta.content = 'width=320, initial-scale=1, maximum-scale=1, user-scalable=no';
+  }
+}
+
+// Run on load and resize
+window.addEventListener('load', enforceViewport);
+window.addEventListener('resize', enforceViewport);
   </script>
+
+
 
 </body>
 </html>
